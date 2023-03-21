@@ -1,3 +1,6 @@
+# VS Code Dev Containers
+.devcontainer/
+
 # MacOS
 .DS_STORE
 

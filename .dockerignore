@@ -1,0 +1,30 @@
+# JS
+**/node_modules/
+**/dist
+.git
+frontend/npm-debug.log
+frontend/.coverage
+frontend/.coverage.*
+frontend/.env
+frontend/.aws
+
+# Python
+backend/__pycache__
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
+backend/.Python
+backend/env
+backend/pip-log.txt
+backend/pip-delete-this-directory.txt
+backend/.tox
+backend/.coverage
+backend/.coverage.*
+backend/.cache
+backend/nosetests.xml
+backend/coverage.xml
+backend/*.cover
+backend/*.log
+backend/.mypy_cache
+backend/.pytest_cache
+backend/.hypothesis
