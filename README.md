@@ -1,1 +1,1 @@
-# lol-friend-stats
+# Premade.gg
