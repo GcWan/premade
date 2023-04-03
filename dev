@@ -1,0 +1,15 @@
+#!/bin/bash
+cd "${0%/*}/backend"
+if [[ ! -f ".env" ]]; then
+    echo "No .env file found. Please create one."
+    exit 1
+fi
+if [[ ! -d "./venv" ]]; then
+    virtualenv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+else
+    source venv/bin/activate
+    pip-upgrade -p all
+fi
+python manage.py runserver

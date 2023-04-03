@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.urls import resolve
+from dotenv import load_dotenv
 import requests
+import os
 # Create your views here.
 
-api_key = 'RGAPI-ec2ff60b-f925-4e0b-88b8-adefea2d1401'
+load_dotenv()
+
+api_key = os.getenv('API_KEY')
 
 def getData(id):
     URL = "https://na"
