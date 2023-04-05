@@ -1,17 +1,29 @@
 #!/bin/bash
 set -e
 
-cd "${0%/*}/backend"
-if [[ ! -f ".env" ]]; then
-    echo "No .env file found. Please create one."
-    exit 1
-fi
-if [[ ! -d "./venv" ]]; then
-    virtualenv venv
-    source venv/bin/activate
-    pip install -r requirements.txt
-else
-    source venv/bin/activate
-    pip-upgrade -p all
-fi
-python manage.py runserver
+CMD=$1
+
+case $CMD in
+    "" | help)
+        echo "Usage: $0 <command>
+        
+Commands:
+  help    Show this help message
+  run     Run the development Django server in Python venv
+        "
+        ;;
+    run)
+        cd "${0%/*}/backend"
+        if [[ ! -f ".env" ]]; then
+            echo "No .env file found. Please create one."
+            exit 1
+        fi
+        if [[ ! -d "./venv" ]]; then
+            virtualenv venv
+        fi
+        source venv/bin/activate
+        pip install -r requirements.txt 
+        python manage.py runserver
+        ;;
+esac
+exit 0
