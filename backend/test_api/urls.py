@@ -1,8 +1,8 @@
 from django.urls import path
 from . import views
+from django.conf import settings
 
-#URLconf
 urlpatterns = [
     path('', views.base),
-    path('<str:username>/', views.say_hello)
+    path('<str:username>', views.getSummonerInfo)
 ]

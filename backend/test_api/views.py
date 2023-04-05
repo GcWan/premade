@@ -1,19 +1,21 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.urls import resolve
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 from dotenv import load_dotenv
 import requests
 import os
-# Create your views here.
 
 load_dotenv()
 
 api_key = os.getenv('API_KEY')
 
-def getData(id):
-    URL = "https://na"
+# Create your views here.
+@api_view(['GET'])
+def base(request):
+    return Response()
 
-def say_hello(request, username):
+@api_view(['GET'])
+def getSummonerInfo(request, username):
     summoner_url = 'https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + username
     new_api_url = summoner_url + '?api_key=' + api_key
     requests.get(new_api_url)
@@ -31,10 +33,4 @@ def say_hello(request, username):
     resp = requests.get(new_api_url)
     for game in resp:
         printstring += str(game)
-    return render(request, 'result.html', {'name': printstring})
-
-def base(request):
-    return render(request, 'search.html')
-
-#return HttpResponse('Hello')
-
+    return Response(printstring)

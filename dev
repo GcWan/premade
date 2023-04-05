@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 cd "${0%/*}/backend"
 if [[ ! -f ".env" ]]; then
     echo "No .env file found. Please create one."
