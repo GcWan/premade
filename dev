@@ -8,10 +8,14 @@ case $CMD in
         echo "Usage: $0 <command>
         
 Commands:
-  help    Show this help message
-  run     Run the development Django server in Python venv
-  docker  Build and run the Docker container
-  env     Set API key in .env file
+  help      Show this help message
+  run       Run the development Django server in Python venv
+  docker    Build and run the Docker container
+  ps        List the Docker containers
+  logs      Show the logs of a Docker container
+  restart   Restart the Docker container
+  kill      Stop the Docker container
+  env       Set API key in .env file
         "
         ;;
     run)
@@ -21,6 +25,10 @@ Commands:
             exit 1
         fi
         if [[ ! -d "./venv" ]]; then
+            if [[ ! $(pip list | grep -F virtualenv) ]]; then
+                echo "Installing virtualenv..."
+                pip3 install virtualenv
+            fi
             virtualenv venv
         fi
         source venv/bin/activate
@@ -29,11 +37,36 @@ Commands:
         ;;
     docker)
         cd "${0%/*}"
-        docker compose -f "Docker-compose-dev.yaml" up --build
+        docker compose up -d --build
+        ;;
+    ps)
+        cd "${0%/*}"
+        docker compose ps
+        ;;
+    logs)
+        cd "${0%/*}"
+        if [[ ! -z $2 && ! $(docker compose ps | grep -F $2) ]]; then
+            echo "Invalid container name. Please specify a valid container name. A list of containers can be found by running the ps command."
+            exit 1
+        fi
+        docker compose logs -f $2
+        ;;
+    restart)
+        cd "${0%/*}"
+        if [[ ! -z $2 && ! $(docker compose ps | grep -F $2) ]]; then
+            echo "Invalid container name. Please specify a valid container name. A list of containers can be found by running the ps command."
+            exit 1
+        fi
+        docker compose restart $2
+        ;;
+    kill)
+        cd "${0%/*}"
+        docker compose down
         ;;
     env)
         cd "${0%/*}/backend"
         echo "API_KEY = \"$2\"" > .env
+        cat .env
         ;;
 esac
 exit 0
