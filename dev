@@ -10,12 +10,14 @@ case $CMD in
 Commands:
   help    Show this help message
   run     Run the development Django server in Python venv
+  docker  Build and run the Docker container
+  env     Set API key in .env file
         "
         ;;
     run)
         cd "${0%/*}/backend"
         if [[ ! -f ".env" ]]; then
-            echo "No .env file found. Please create one."
+            echo "No .env file found. Please use the env command."
             exit 1
         fi
         if [[ ! -d "./venv" ]]; then
@@ -24,6 +26,14 @@ Commands:
         source venv/bin/activate
         pip install -r requirements.txt 
         python manage.py runserver
+        ;;
+    docker)
+        cd "${0%/*}"
+        docker compose -f "Docker-compose-dev.yaml" up --build
+        ;;
+    env)
+        cd "${0%/*}/backend"
+        echo "API_KEY = \"$2\"" > .env
         ;;
 esac
 exit 0
