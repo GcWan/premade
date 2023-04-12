@@ -9,8 +9,8 @@ case $CMD in
         
 Commands:
   help      Show this help message
-  run       Run the development Django server in Python venv
-  docker    Build and run the Docker container
+  venv       Run the development Django server in Python venv
+  build    Build and run the Docker container
   ps        List the Docker containers
   logs      Show the logs of a Docker container
   restart   Restart the Docker container
@@ -18,7 +18,7 @@ Commands:
   env       Set API key in .env file
         "
         ;;
-    run)
+    venv)
         cd "${0%/*}/backend"
         if [[ ! -f ".env" ]]; then
             echo "No .env file found. Please use the env command."
@@ -35,7 +35,7 @@ Commands:
         pip install -r requirements.txt 
         python manage.py runserver
         ;;
-    docker)
+    build)
         cd "${0%/*}"
         docker compose up -d --build
         ;;
