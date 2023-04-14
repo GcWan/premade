@@ -1,3 +1,4 @@
+name: premade
 services:
   backend:
     container_name: backend
@@ -11,18 +12,18 @@ services:
     ports:
       - 8000:8000
     environment:
-      DEBUG: 'True'
+      DEBUG: "True"
 
-  # frontend:
-  #   container_name: frontend
-  #   image: premade-frontend
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: Dockerfile.dev
-  #   command: yarn start
-  #   volumes:
-  #     - ./frontend:/app/frontend
-  #   ports:
-  #     - 3000:3000
-  #   environment:
-  #     NODE_ENV: development
+  frontend:
+    container_name: frontend
+    image: premade-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    command: npm start
+    volumes:
+      - ./frontend:/app/frontend
+    ports:
+      - 3000:3000
+    environment:
+      NODE_ENV: development
