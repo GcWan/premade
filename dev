@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+cd "${0%/*}"
+
 CMD=$1
 
 case $CMD in
@@ -9,17 +11,48 @@ case $CMD in
         
 Commands:
   help      Show this help message
-  venv      Run the development Django server in Python venv
   build     Build and run the Docker container
   ps        List the Docker containers
   logs      Show the logs of a Docker container
   restart   Restart the Docker container
   kill      Stop the Docker container
   env       Set API key in .env file
+  django    Run the development Django server in Python venv
+  react     Run the development React server locally
         "
         ;;
-    venv)
-        cd "${0%/*}/backend"
+    build)
+        docker compose up -d --build
+        docker image prune -f
+        docker volume prune -f
+        ;;
+    ps)
+        docker compose ps
+        ;;
+    logs)
+        if [[ ! -z $2 && ! $(docker compose ps | grep -F $2) ]]; then
+            echo "Invalid container name. Please specify a valid container name. A list of containers can be found by running the ps command."
+            exit 1
+        fi
+        docker compose logs -f $2
+        ;;
+    restart)
+        if [[ ! -z $2 && ! $(docker compose ps | grep -F $2) ]]; then
+            echo "Invalid container name. Please specify a valid container name. A list of containers can be found by running the ps command."
+            exit 1
+        fi
+        docker compose restart $2
+        ;;
+    kill)
+        docker compose down
+        ;;
+    env)
+        cd "backend"
+        echo "API_KEY = \"$2\"" > .env
+        cat .env
+        ;;
+    django)
+        cd "backend"
         if [[ ! -f ".env" ]]; then
             echo "No .env file found. Please use the env command."
             exit 1
@@ -35,39 +68,16 @@ Commands:
         pip install -r requirements.txt 
         python manage.py runserver
         ;;
-    build)
-        cd "${0%/*}"
-        docker compose up -d --build
-        docker image prune -f
-        ;;
-    ps)
-        cd "${0%/*}"
-        docker compose ps
-        ;;
-    logs)
-        cd "${0%/*}"
-        if [[ ! -z $2 && ! $(docker compose ps | grep -F $2) ]]; then
-            echo "Invalid container name. Please specify a valid container name. A list of containers can be found by running the ps command."
-            exit 1
+    react)
+        cd "frontend"
+        if [[ ! -d "node_modules" ]]; then
+            npm install
         fi
-        docker compose logs -f $2
+        npm start
         ;;
-    restart)
-        cd "${0%/*}"
-        if [[ ! -z $2 && ! $(docker compose ps | grep -F $2) ]]; then
-            echo "Invalid container name. Please specify a valid container name. A list of containers can be found by running the ps command."
-            exit 1
-        fi
-        docker compose restart $2
-        ;;
-    kill)
-        cd "${0%/*}"
-        docker compose down
-        ;;
-    env)
-        cd "${0%/*}/backend"
-        echo "API_KEY = \"$2\"" > .env
-        cat .env
+    *)
+        echo "Invalid command. Please use the help command to see a list of commands."
+        exit 1
         ;;
 esac
 exit 0
