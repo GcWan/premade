@@ -10,9 +10,12 @@ load_dotenv()
 api_key = os.getenv('API_KEY')
 
 # Create your views here.
+
+
 @api_view(['GET'])
 def base(request):
     return Response()
+
 
 @api_view(['GET'])
 def getSummonerInfo(request, username):
@@ -27,7 +30,8 @@ def getSummonerInfo(request, username):
         if key == 'puuid':
             printstring += value
             puuid = value
-    match_url = 'https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/'+ puuid +'/ids?start=0&count=20'
+    match_url = 'https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/' + \
+        puuid + '/ids?start=0&count=20'
     new_api_url = match_url + '&api_key=' + api_key
     requests.get(new_api_url)
     resp = requests.get(new_api_url)
