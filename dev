@@ -71,9 +71,10 @@ Commands:
     react)
         cd "frontend"
         if [[ ! -d "node_modules" ]]; then
-            npm install
+            which -s yarn || npm install -g yarn
         fi
-        npm start
+        yarn install --frozen-lockfile
+        yarn start
         ;;
     *)
         echo "Invalid command. Please use the help command to see a list of commands."

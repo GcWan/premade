@@ -1,8 +1,9 @@
-FROM node:19
+FROM node:19-slim
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install
+COPY package.json yarn.lock .yarnrc.yml ./
+COPY .yarn/releases/yarn-3.5.0.cjs .yarn/releases/yarn-3.5.0.cjs
+RUN yarn --frozen-lockfile
 
-COPY . .
+CMD ["yarn", "start"]

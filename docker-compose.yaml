@@ -1,3 +1,4 @@
+version: "3.9"
 name: premade
 services:
   backend:
@@ -6,13 +7,18 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile.dev
-    command: python backend/manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./backend:/app/backend
+      - ./backend:/app
+      - /app/venv
     ports:
       - 8000:8000
     environment:
       DEBUG: "True"
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
 
   frontend:
     container_name: frontend
@@ -20,10 +26,18 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile.dev
-    command: npm start
+    command: yarn start
     volumes:
-      - ./frontend:/app/frontend
+      - ./frontend:/app
+      - frontend_modules:/app/node_modules
     ports:
       - 3000:3000
     environment:
       NODE_ENV: development
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+
+volumes:
+  frontend_modules:
