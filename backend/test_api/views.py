@@ -35,6 +35,15 @@ def getSummonerInfo(request, username):
     new_api_url = match_url + '&api_key=' + api_key
     requests.get(new_api_url)
     resp = requests.get(new_api_url)
-    for game in resp:
-        printstring += str(game)
+    match_ids = resp.json()
+    for game in match_ids:
+        api_url = "https://americas.api.riotgames.com/lol/match/v5/matches/" + str(game) + '?api_key=' + api_key
+        resp = requests.get(api_url)
+        match_data = resp.json()
+        participants = match_data['metadata']['participants']
+        player_index = participants.index(puuid)
+        player_data = match_data['info']['participants'][player_index]
+        printstring += player_data['championName']
+    print('\n')
+    print(printstring)
     return Response(printstring)
