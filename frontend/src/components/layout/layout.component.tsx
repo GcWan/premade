@@ -1,20 +1,20 @@
-//import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import { HeaderSection } from "../header"
-import { MainComponent } from "../main"
-import {FooterComponent } from "../footer"
+import { BrowserRouter as Router, Route /*, Switch */ } from "react-router-dom";
+import { HeaderSection } from "../header";
+import { MainComponent } from "../main";
+import { FooterComponent } from "../footer";
 
 const LayoutComponent = () => {
-    return (
-        <>
-        <HeaderSection/>
+  return (
+    <>
+      <HeaderSection />
 
-        <MainComponent/>
+      <MainComponent />
 
-        <FooterComponent/>
-        </>
+      <FooterComponent />
+    </>
 
-        //can implement a sidebar if needed?? 
-    )
-}
+    //can implement a sidebar if needed??
+  );
+};
 
 export default LayoutComponent;
