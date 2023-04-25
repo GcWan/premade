@@ -1,20 +1,16 @@
 import { OverviewComponent } from "../overview";
 
 const MainComponent = () => {
-    return ( 
-        <>
-        <main id="main" className="main">
-            <OverviewComponent/>
-        </main>
-        </>
-    );
-}
+  return (
+    <>
+      <main id="main" className="main">
+        <OverviewComponent />
+      </main>
+    </>
+  );
+};
 
 export default MainComponent;
-
-
-
-
 
 /*
 I want to use a router that switches between overview / stat comparison:

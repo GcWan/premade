@@ -1,2 +1,2 @@
 import TitleComponent from "./title.component";
-export {TitleComponent}
+export { TitleComponent };

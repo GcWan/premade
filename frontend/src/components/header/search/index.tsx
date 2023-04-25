@@ -1,2 +1,2 @@
-import SearchComponent from './search.component'
-export {SearchComponent}
+import SearchComponent from "./search.component";
+export { SearchComponent };

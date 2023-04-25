@@ -1,2 +1,2 @@
-import MainComponent from './main.component'
-export {MainComponent}
+import MainComponent from "./main.component";
+export { MainComponent };
