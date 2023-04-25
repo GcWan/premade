@@ -6444,6 +6444,7 @@ __metadata:
     react: ^18.2.0
     react-apexcharts: ^1.4.0
     react-bootstrap: ^2.7.4
+    react-bootstrap-icons: ^1.10.3
     react-dom: ^18.2.0
     react-router-dom: ^6.10.0
     react-scripts: ^5.0.1
@@ -10603,7 +10604,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.7, prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.5.7, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -10735,6 +10736,17 @@ __metadata:
     regenerator-runtime: ^0.13.9
     whatwg-fetch: ^3.6.2
   checksum: 1bb031080af15397d6eb9c69a0c2e93799991f7197a086e4409ba719398f1256b542a3d6c9a34673d516c684eef3e8226c99b335982593851f58f65f6e43571b
+  languageName: node
+  linkType: hard
+
+"react-bootstrap-icons@npm:^1.10.3":
+  version: 1.10.3
+  resolution: "react-bootstrap-icons@npm:1.10.3"
+  dependencies:
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: ">=16.8.6"
+  checksum: afc9a4a558217c9e4abf77734d902fa658be38f61eb99a0c6dd574eaf8289517ff17fe1e2cd62735901975a8da8f2dc363d3f964a322377726b4d825a09febfa
   languageName: node
   linkType: hard
 

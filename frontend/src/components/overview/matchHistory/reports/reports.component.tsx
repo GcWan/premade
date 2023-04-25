@@ -1,5 +1,6 @@
 import Chart from "react-apexcharts";
 import { ApexOptions } from "apexcharts";
+import { ThreeDots } from "react-bootstrap-icons";
 
 //should probably separate this file into separate components
 
@@ -69,7 +70,7 @@ const ReportsComponent = () => {
       <div className="card">
         <div className="filter">
           <a className="icon" href="#" data-bs-toggle="dropdown">
-            <i className="bi bi-three-dots"></i>
+            <ThreeDots />
           </a>
           <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
             <li className="dropdown-header text-start">

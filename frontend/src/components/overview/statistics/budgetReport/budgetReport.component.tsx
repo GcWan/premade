@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import ReactEcharts from "echarts-for-react";
+import { ThreeDots } from "react-bootstrap-icons";
 
 const BudgetReportComponent = () => {
   const option = {
@@ -57,7 +58,7 @@ const BudgetReportComponent = () => {
     <div className="card">
       <div className="filter">
         <a className="icon" href="#" data-bs-toggle="dropdown">
-          <i className="bi bi-three-dots"></i>
+          <ThreeDots />
         </a>
         <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
           <li className="dropdown-header text-start">
