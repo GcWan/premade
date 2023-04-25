@@ -6,7 +6,7 @@ import {MatchComponent} from "./match";
 
 const MatchHistoryComponent = () => {
     return(
-        <div className="col-lg-4">
+        <div className="col-lg-8">
             <div className="row">
                 <SalesComponent/>
                 <RevenueComponent/>
