@@ -24,6 +24,9 @@ def getSummonerInfo(request, username):
     requests.get(new_api_url)
     resp = requests.get(new_api_url)
     player_info = resp.json()
+    if 'status' in player_info:
+        status = player_info['status']['status_code']
+        return Response(status)
     printstring = 'puuid: '
     puuid = ''
     for key, value in player_info.items():
