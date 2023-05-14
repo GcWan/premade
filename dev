@@ -74,7 +74,7 @@ Commands:
             which -s yarn || npm install -g yarn
         fi
         yarn install --frozen-lockfile
-        yarn start
+        yarn dev
         ;;
     *)
         echo "Invalid command. Please use the help command to see a list of commands."
