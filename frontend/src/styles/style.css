@@ -208,6 +208,18 @@ h6 {
   border-color: #d3d3d4;
 }
 
+/* Match */
+.match {
+  margin-bottom: 5px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+}
+
+.matches{
+  margin-bottom: 30px;
+}
+
 /* Card */
 .card {
   margin-bottom: 30px;
@@ -622,10 +634,7 @@ h6 {
 }
 
 @media (min-width: 1200px) {
-  #main,
-  #footer {
-    margin-left: 300px;
-  }
+  
 }
 
 @media (max-width: 1199px) {

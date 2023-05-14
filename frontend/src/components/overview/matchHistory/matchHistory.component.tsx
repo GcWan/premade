@@ -8,11 +8,11 @@ const MatchHistoryComponent = () => {
   return (
     <div className="col-lg-8">
       <div className="row">
+        <MatchComponent/>
         <SalesComponent />
         <RevenueComponent />
         <CustomersComponent />
-        <ReportsComponent />
-        <MatchComponent />
+        <ReportsComponent />   
       </div>
     </div>
   );
