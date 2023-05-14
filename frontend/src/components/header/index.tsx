@@ -1,2 +1,2 @@
-import HeaderSection from './header.component'
-export {HeaderSection}
+import HeaderSection from "./header.component";
+export { HeaderSection };

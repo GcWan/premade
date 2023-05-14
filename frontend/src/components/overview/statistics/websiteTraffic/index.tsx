@@ -1,2 +1,2 @@
 import WebsiteTrafficComponent from "./websiteTraffic.component";
-export {WebsiteTrafficComponent}
+export { WebsiteTrafficComponent };

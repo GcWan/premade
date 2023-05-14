@@ -1,2 +1,2 @@
 import OverviewComponent from "./overview.component";
-export {OverviewComponent};
+export { OverviewComponent };
