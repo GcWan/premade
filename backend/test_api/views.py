@@ -25,7 +25,7 @@ def getSummonerInfo(request, username):
     resp = requests.get(new_api_url)
     player_info = resp.json()
     if 'status' in player_info:
-        status = player_info['status']['status_code']
+        status = str(player_info['status']['status_code'])
         return Response(status)
     printstring = 'puuid: '
     puuid = ''
@@ -39,6 +39,7 @@ def getSummonerInfo(request, username):
     requests.get(new_api_url)
     resp = requests.get(new_api_url)
     match_ids = resp.json()
+    game_list = []
     for game in match_ids:
         api_url = "https://americas.api.riotgames.com/lol/match/v5/matches/" + str(game) + '?api_key=' + api_key
         resp = requests.get(api_url)
@@ -46,7 +47,9 @@ def getSummonerInfo(request, username):
         participants = match_data['metadata']['participants']
         player_index = participants.index(puuid)
         player_data = match_data['info']['participants'][player_index]
+        game_list.append(player_data)
         printstring += player_data['championName']
     print('\n')
     print(printstring)
-    return Response(printstring)
+#detectorWardsPlaced is the control wards placed, visionwards is control wards placed.
+    return Response(game_list)
