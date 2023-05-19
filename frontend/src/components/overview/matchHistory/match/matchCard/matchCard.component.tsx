@@ -4,8 +4,6 @@ const MatchCardComponent = (props: any) => {
   return (
     <div className="col-12">
       <div className="match">
-        
-
         <div className="card-body">
           <h5 className="card-title">
             Recent Sales <span>| Today</span>

@@ -1,4 +1,4 @@
-const TitleComponent = () => {
+export default function TitleComponent() {
   return (
     <div className="pagetitle">
       <h1>Overview</h1>
@@ -12,6 +12,4 @@ const TitleComponent = () => {
       </nav>
     </div>
   );
-};
-
-export default TitleComponent;
+}

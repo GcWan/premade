@@ -3,7 +3,7 @@ import { HeaderSection } from "../header";
 import { MainComponent } from "../main";
 import { FooterComponent } from "../footer";
 
-const LayoutComponent = () => {
+export default function LayoutComponent() {
   return (
     <>
       <HeaderSection />
@@ -15,6 +15,4 @@ const LayoutComponent = () => {
 
     //can implement a sidebar if needed??
   );
-};
-
-export default LayoutComponent;
+}

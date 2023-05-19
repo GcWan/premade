@@ -90,11 +90,11 @@ const WebsiteTrafficComponent = () => {
           Website Traffic <span>| Today</span>
         </h5>
 
-        <ReactECharts
+        {/* <ReactECharts
           option={option}
           style={{ minHeight: "400px" }}
           className="echart"
-        />
+        /> */}
       </div>
     </div>
   );

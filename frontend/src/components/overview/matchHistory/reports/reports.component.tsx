@@ -1,10 +1,9 @@
-import Chart from "react-apexcharts";
+import dynamic from "next/dynamic";
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { ApexOptions } from "apexcharts";
 import { ThreeDots } from "react-bootstrap-icons";
 
-//should probably separate this file into separate components
-
-const ReportsComponent = () => {
+export default function ReportsComponent() {
   const options: ApexOptions = {
     chart: {
       toolbar: {
@@ -100,11 +99,9 @@ const ReportsComponent = () => {
             Reports <span>/Today</span>
           </h5>
 
-          <Chart options={options} series={series} type="area" height="350" />
+          {/* <Chart options={options} series={series} type="area" height="350" /> */}
         </div>
       </div>
     </div>
   );
-};
-
-export default ReportsComponent;
+}

@@ -1,6 +1,6 @@
 import { OverviewComponent } from "../overview";
 
-const MainComponent = () => {
+export default function MainComponent() {
   return (
     <>
       <main id="main" className="main">
@@ -8,9 +8,7 @@ const MainComponent = () => {
       </main>
     </>
   );
-};
-
-export default MainComponent;
+}
 
 /*
 I want to use a router that switches between overview / stat comparison:

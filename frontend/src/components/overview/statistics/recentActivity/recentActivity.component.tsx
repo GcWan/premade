@@ -1,7 +1,7 @@
 import { ThreeDots } from "react-bootstrap-icons";
 import { receiveMessageOnPort } from "worker_threads";
 
-const RecentActivityComponent = () => {
+export default function RecentActivityComponent() {
   return (
     <div className="card">
       <div className="filter">
@@ -96,6 +96,4 @@ const RecentActivityComponent = () => {
       </div>
     </div>
   );
-};
-
-export default RecentActivityComponent;
+}

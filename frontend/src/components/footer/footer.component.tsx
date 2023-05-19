@@ -1,4 +1,4 @@
-const FooterComponent = () => {
+export default function FooterComponent() {
   return (
     <footer id="footer" className="footer">
       <div className="copyright">
@@ -12,6 +12,4 @@ const FooterComponent = () => {
 
     //implement button that scrolls back to top
   );
-};
-
-export default FooterComponent;
+}

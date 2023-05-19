@@ -2,7 +2,7 @@ import { TitleComponent } from "./title";
 import { StatisticsComponent } from "./statistics";
 import { MatchHistoryComponent } from "./matchHistory";
 
-const OverviewComponent = () => {
+export default function OverviewComponent() {
   return (
     <>
       <TitleComponent />
@@ -16,6 +16,4 @@ const OverviewComponent = () => {
       </section>
     </>
   );
-};
-
-export default OverviewComponent;
+}

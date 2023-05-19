@@ -1,6 +1,6 @@
 import { Cart, ThreeDots } from "react-bootstrap-icons";
 
-const SalesComponent = () => {
+export default function SalesComponent() {
   return (
     <div className="col-xxl-4 col-md-6">
       <div className="card info-card sales-card">
@@ -50,6 +50,4 @@ const SalesComponent = () => {
       </div>
     </div>
   );
-};
-
-export default SalesComponent;
+}
