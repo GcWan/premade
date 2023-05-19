@@ -1,6 +1,6 @@
 import { CurrencyDollar, ThreeDots } from "react-bootstrap-icons";
 
-const RevenueComponent = () => {
+export default function RevenueComponent() {
   return (
     <div className="col-xxl-4 col-md-6">
       <div className="card info-card revenue-card">
@@ -50,6 +50,4 @@ const RevenueComponent = () => {
       </div>
     </div>
   );
-};
-
-export default RevenueComponent;
+}

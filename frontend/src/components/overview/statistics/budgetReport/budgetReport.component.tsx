@@ -1,8 +1,7 @@
-import { useEffect } from "react";
 import ReactEcharts from "echarts-for-react";
 import { ThreeDots } from "react-bootstrap-icons";
 
-const BudgetReportComponent = () => {
+export default function BudgetReportComponent() {
   const option = {
     legend: {
       data: ["Allocated Budget", "Actual Spending"],
@@ -88,14 +87,12 @@ const BudgetReportComponent = () => {
           Budget Report <span>| This Month</span>
         </h5>
 
-        <ReactEcharts
+        {/* <ReactEcharts
           style={{ minHeight: "400px" }}
           className="echart"
           option={option}
-        />
+        /> */}
       </div>
     </div>
   );
-};
-
-export default BudgetReportComponent;
+}

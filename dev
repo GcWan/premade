@@ -17,8 +17,8 @@ Commands:
   restart   Restart the Docker container
   kill      Stop the Docker container
   env       Set API key in .env file
-  django    Run the development Django server in Python venv
-  react     Run the development React server locally
+  backend   Run the development Django server in Python venv
+  frontend  Run the development Next.js server locally
         "
         ;;
     build)
@@ -51,7 +51,7 @@ Commands:
         echo "API_KEY = \"$2\"" > .env
         cat .env
         ;;
-    django)
+    backend)
         cd "backend"
         if [[ ! -f ".env" ]]; then
             echo "No .env file found. Please use the env command."
@@ -68,13 +68,13 @@ Commands:
         pip install -r requirements.txt 
         python manage.py runserver
         ;;
-    react)
+    frontend)
         cd "frontend"
         if [[ ! -d "node_modules" ]]; then
             which -s yarn || npm install -g yarn
         fi
         yarn install --frozen-lockfile
-        yarn start
+        yarn dev
         ;;
     *)
         echo "Invalid command. Please use the help command to see a list of commands."

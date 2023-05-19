@@ -2,7 +2,7 @@ import { BudgetReportComponent } from "./budgetReport";
 import { RecentActivityComponent } from "./recentActivity";
 import { WebsiteTrafficComponent } from "./websiteTraffic";
 
-const StatisticsComponent = () => {
+export default function StatisticsComponent() {
   return (
     <div className="col-lg-4">
       <RecentActivityComponent />
@@ -10,6 +10,4 @@ const StatisticsComponent = () => {
       <WebsiteTrafficComponent />
     </div>
   );
-};
-
-export default StatisticsComponent;
+}

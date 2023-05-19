@@ -4,18 +4,16 @@ import { RevenueComponent } from "./revenue";
 import { ReportsComponent } from "./reports";
 import { MatchComponent } from "./match";
 
-const MatchHistoryComponent = () => {
+export default function MatchHistoryComponent() {
   return (
     <div className="col-lg-8">
       <div className="row">
-        <MatchComponent/>
+        <MatchComponent />
         <SalesComponent />
         <RevenueComponent />
         <CustomersComponent />
-        <ReportsComponent />   
+        <ReportsComponent />
       </div>
     </div>
   );
-};
-
-export default MatchHistoryComponent;
+}

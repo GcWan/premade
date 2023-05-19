@@ -1,4 +1,4 @@
-const SearchComponent = () => {
+export default function SearchComponent() {
   return (
     <div className="search-bar">
       <form
@@ -18,6 +18,4 @@ const SearchComponent = () => {
       </form>
     </div>
   );
-};
-
-export default SearchComponent;
+}
